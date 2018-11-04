@@ -3,35 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrystalsCollector Game</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <title>TriviaGame</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-        <header><h1>CrystalsCollector!</h1></header>
-        <div id="content">
-            <p>You will be given a random number at the start of the game.
-                <br><br>There are four cristals below.By clicking a cristal you will add a specific amount of points to your total score.
-                <br><br>You win the game by matching your total score to random number,you lose your game  if your total score above the random number.
-                <br><br>The value of each cristal is hiden from you until you click on it.
-                <br><br>Each time when the game starts,the game will change the value of each crystal.</p>
+    <div id="container">
+        <header>Totally Trivial Trivia!</header>
+        <div class="content" id="content1">
+            <div id="start">Start</div>
+        </div>
+        <div class="content" id="content2">
+            <div id="timer"></div>
+            <div class="question">
+                <div id="q1">1.Who cameos in every Marvel movie?<br>
+                    <div class="options">
+                    <input type="radio" name="radio_1" value="0">Kevin Feige
+                    <input type="radio" name="radio_1" value="0">Jack Kirby
+                    <input type="radio" name="radio_1" value="0">Joss Whedon
+                    <input type="radio" name="radio_1" value="1">Stan Lee<br><br>
+                    </div>
+                </div>
+                <div id="q2">2.Which hero secretly has a family?<br>
+                    <div class="options">
+                    <input type="radio" name="radio_2" value="1">Hawkeye
+                    <input type="radio" name="radio_2" value="0">Black Widow
+                    <input type="radio" name="radio_2" value="0">Bruce Banner
+                    <input type="radio" name="radio_2" value="0">Tony Stark<br><br>
+                    </div>
+                </div>
+                <div id="q3">3.Who is the strongest Avenger, according to Stark's Quinjet?<br>
+                    <div class="options">
+                    <input type="radio" name="radio_3" value="0">Thor
+                    <input type="radio" name="radio_3" value="0">Iron Man
+                    <input type="radio" name="radio_3" value="1">Hulk
+                    <input type="radio" name="radio_3" value="0">Hawkeye<br><br>
+                    </div>
+                </div>
+                <div id="q4">4.How did Thor lose his eye?<br>
+                    <div class="options">
+                    <input type="radio" name="radio_4" value="0">Fighting Loki
+                    <input type="radio" name="radio_4" value="0">Fighting Thanos
+                    <input type="radio" name="radio_4" value="1">Fighting Hela
+                    <input type="radio" name="radio_4" value="0">Fighting Hulk<br><br>
+                    </div>
+                </div>
+                <div id="q5">5.What movie did Thanos first appear in?<br>
+                    <div class="options">
+                    <input type="radio" name="radio_5" value="1">Avengers
+                    <input type="radio" name="radio_5" value="0">Thor
+                    <input type="radio" name="radio_5" value="0">Thor:The Dark World
+                    <input type="radio" name="radio_5" value="0">Captain America:Civil War<br><br>
+                    </div>
+                </div>
             </div>
-            <div id="random-Number"></div>
-            <div id="win-lose">
-                <span id="result"></span>
-                <div id="wins">wins:0</div>
-                <div id="loses">loses:0</div>
+            <div id="done">Done</div> 
+        </div>
+        <div class="content" id="content3">
+            <div id="result">All Done!
+                <div id="correct"></div>
+                <div id="incorrect"></div>
+                <div id="unanswered"></div>
             </div>
-            <div id="images">
-                <img class="crystals" id="crystal1" src="assets/images/1.jpg">
-                <img class="crystals" id="crystal2" src="assets/images/2.jpg">
-                <img class="crystals" id="crystal3" src="assets/images/3.jpg">
-                <img class="crystals" id="crystal4" src="assets/images/4.jpg">
-            </div>
-            <h2>Your total score is:</h2>
-            <div id="yourTotalScore">
-            </div>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script type="text/javascript" src="assets/javascript/game.js"></script>
-    </body>
-    </html>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>

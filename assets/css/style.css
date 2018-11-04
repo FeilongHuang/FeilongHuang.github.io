@@ -1,78 +1,47 @@
 body{
-    background-image: url("../images/bgImg.jpg")
+    background-image: url(../images/bgimg.jpg);
+    text-align: center;
+}
+#container{
+    width:960px;
+    height:960px;
+    background-color: #fef392;
+    margin:10px;
+    margin-left: 250px;
 }
 header{
-    background-color: #ca6f32;
-    color: white;
-    font-size: 30px;
-    padding:25px;
-    margin:10px;
-    width:250px;
+    font-size: 50px;
+    font-weight: bold;
+    color: blue;
+    text-align: center;
+    margin:20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 50px;
 }
-#content{
-    background-color: #fbe6cf;
-    color: #6dac76;
-    font-size: 20px;
-    width: 450px;
-    height:240px;
-    padding:20px;
-    margin:10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-}
-#random-Number{
-    background-color: #53c987;
-    width: 250px;
-    height:80px;
-    color: #5e6e71;
-    font-size: 35px;
-    margin:10px;
-    padding:10px;
-    float: left;
-}
-#win-lose{
-    background-color: #3cfefe;
-    width: 90px;
-    height:80px;
-    color: #6dac76;
-    font-size: 17px;
-    margin:10px;
-    padding:10px;
-    float: left;
-
-}
-#status,#wins,#loses{
-    float: left;
-    margin:10px;
-}
-#images{
-    width: 600px;
-    clear: both;
-}
-img{
-    width:80px;
-    height:80px;
-}
-img:hover{
+#start,#done{
+    font-size: 50px;
+    color:black;
+    background-color: #ffccd1;
+    text-align: center;
+    margin:20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 10px;
+    width:400px;
+    border:solid;
+    border-color: blue;
+    margin-left: 260px;
+    margin-top: 100px;
     cursor: pointer;
 }
-.crystals{
-    float: left;
-    margin:10px;
+#done{
+    margin-top:20px;
 }
-h2,#yourTotalScore{
-    background-color: #1fa397;
-    color: white;
-    width:250px;
-    margin: 10px;
-    padding: 5px;
-    clear:both;
-
+#content2,#content3{
+    font-size: 25px;
 }
-h2{
-    font-size: 17px;
+.question{
+    margin:30px;
 }
-#yourTotalScore{
-    height:90px;
-    font-size: 30px
+.options{
+    font-size: 15px;
 }
