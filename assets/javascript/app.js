@@ -1,61 +1,61 @@
-$("#content2").hide();
-$("#content3").hide();
-//start game
-$("#start").on('click',startgame)
-
-function startgame(){
-    timeleft();
-    loadquestion();
+var topics=["angry","inspired","scared","bored","shocked","drunk","nervous","surprised","excited","relaxed","happy"];
+function renderButtons() {
+    $("#btn").html("");
+    for (var i = 0; i < topics.length; i++) {
+        var bt = $("<button>");
+        bt.addClass("topic");
+        bt.attr("data-name", topics[i]);
+        bt.text(topics[i]);
+        $("#btn").append(bt);
+    }
 };
-var IntervalId;
-var count=90;
-function timeleft(){
-    IntervalId=setInterval(timecount,1000)
-};
-function timecount(){
-    count--;
-    $("#timer").html("Time Rmaining: "+count+" Seconds");
-    if(count===0){
-        getresult();
-        clearInterval(IntervalId);
-    }
-}
-function loadquestion(){
-$("#content1").hide();
-$("#content2").show();
-}
-var correctanswer=0;
-var incorrecanswer=0;
-var unansweredquestion=0;
-$("#correct").html("Correct Answer: "+correctanswer);
-$("#incorrect").html("Incorrect Answer: "+incorrecanswer);
-$("#unanswered").html("Unanswered: "+unansweredquestion);
+  $("#addGif").on("click", function(event) {
+    event.preventDefault();
+    topics.push($("#gif-input").val());
+    renderButtons();
+  });
+  renderButtons();
 
-$("#done").on('click',getresult);
-//get result
-function getresult(){
-    $("#content2").hide();
-    $("#content3").show();
-    clearInterval(IntervalId);
-var userchoice=[
-    $('input[name="radio_1"]:checked').val(),
-    $('input[name="radio_2"]:checked').val(),
-    $('input[name="radio_3"]:checked').val(),
-    $('input[name="radio_4"]:checked').val(),
-    $('input[name="radio_5"]:checked').val(),
-    ]
-for(var i=0;i<userchoice.length;i++){
-    if(userchoice[i]==="1"){
-        correctanswer++;
-        $("#correct").html("Correct Answer: "+correctanswer);
+function displayMovieInfo() {
+    $("#gifShow").html("");
+    var topic = $(this).attr("data-name");
+    var queryURL="http://api.giphy.com/v1/gifs/search?q="+topic+"&api_key=vE4Wtbvqs7WbrmCN1g07CRBAEWZOnKY1&limit=10";
+    $.ajax({
+        url:queryURL,
+        method:"GET"
+    }).then(function(response){
+        var results=response.data;
+         for (var i = 0; i < results.length; i++) {  
+        var resultDiv=$("<div>");
+        resultDiv.css({
+            float:"left",
+            margin:"20px",
+        })
+        var p=$("<p>");
+        p.text("Rating: "+results[i].rating);
+        var resultImage=$("<img>");
+        resultImage.addClass("resultIMG")
+        resultImage.attr({"src":results[i].images.fixed_height_still.url,
+                            "data-still":results[i].images.fixed_height_still.url,
+                            "data-animate":results[i].images.fixed_height.url,
+                            "data-state":"still"});
+        resultDiv.append(p);
+        resultDiv.append(resultImage);
+        $("#gifShow").append(resultDiv);
     }
-    else if(userchoice[i]==="0"){
-        incorrecanswer++;
-        $("#incorrect").html("Incorrect Answer: "+incorrecanswer);
-    }
-    else{
-        unansweredquestion++;
-        $("#unanswered").html("Unanswered: "+unansweredquestion);
-    }
-}
-    };
+    $(".resultIMG").on('click',function(){
+         var image =$(this);
+        var state =image.attr("data-state");
+      if(state==='still'){
+      image.attr("src",image.attr("data-animate"));
+      image.attr("data-state","animate");
+      }
+      else if(state==='animate'){
+      image.attr("src",image.attr("data-still"));
+      image.attr("data-state","still");
+      }
+    })
+})
+};
+$(document).on("click", ".topic", displayMovieInfo);
+

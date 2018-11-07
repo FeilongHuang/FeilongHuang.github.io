@@ -1,1 +1,1 @@
-# This is the basic game with the marvel theme!
+# This is GifTastic!
